@@ -2,11 +2,11 @@
   <section>
     <b-sidebar
       type="is-light"
-      :fullheight="fullheight"
-      :overlay="overlay"
-      :mobile="mobile"
+      :fullheight="true"
+      :overlay="false"
+      mobile="reduce"
       expand-on-hover
-      v-model="open"
+      :open="true"
     >
       <div class="p-1">
         <img
@@ -15,16 +15,53 @@
         />
         <b-menu>
           <b-menu-list label="Menu">
-            <b-menu-item icon="fa-solid fa-calendar" label="การจอง"></b-menu-item>
+            <b-menu-item
+              icon="fa-solid fa-calendar"
+              label="การจอง"
+              tag="router-link"
+              to="/"
+              exact
+            ></b-menu-item>
             <b-menu-item icon="fa-solid fa-gear" label="จัดการข้อมูล">
-              <b-menu-item icon="fa-solid fa-user-tie" label="เจ้าหน้าที่"></b-menu-item>
-              <b-menu-item icon="fa-solid fa-user" label="ลูกค้า"></b-menu-item>
-              <b-menu-item icon="fa-solid fa-house" label="ห้องพัก"></b-menu-item>
-              <b-menu-item icon="fa-solid fa-hotel" label="ประเภทห้องพัก"></b-menu-item>
+              <b-menu-item
+                icon="fa-solid fa-user-tie"
+                label="เจ้าหน้าที่"
+                tag="router-link"
+                to="/authorities"
+              ></b-menu-item>
+              <b-menu-item
+                icon="fa-solid fa-user"
+                label="ลูกค้า"
+                tag="router-link"
+                to="/customers"
+              ></b-menu-item>
+              <b-menu-item
+                icon="fa-solid fa-house"
+                label="ห้องพัก"
+                tag="router-link"
+                to="/rooms"
+              ></b-menu-item>
+              <b-menu-item
+                icon="fa-solid fa-hotel"
+                label="ประเภทห้องพัก"
+                tag="router-link"
+                to="/room-types"
+              >
+              </b-menu-item>
             </b-menu-item>
             <b-menu-item icon="fa-solid fa-address-book" label="รายงาน">
-              <b-menu-item icon="fa-solid fa-sack-dollar" label="รายรับประจำวัน"></b-menu-item>
-              <b-menu-item icon="fa-solid fa-users" label="การเข้าพักประจำเดือน"></b-menu-item>
+              <b-menu-item
+                icon="fa-solid fa-sack-dollar"
+                label="รายรับประจำวัน"
+                tag="router-link"
+                to="/daily-report"
+              ></b-menu-item>
+              <b-menu-item
+                icon="fa-solid fa-users"
+                label="การเข้าพักประจำเดือน"
+                tag="router-link"
+                to="/monthly-report"
+              ></b-menu-item>
             </b-menu-item>
           </b-menu-list>
           <b-menu-list label="Actions">
@@ -40,13 +77,5 @@
 <script>
 export default {
   name: 'Sidebar',
-  data() {
-    return {
-      open: true,
-      overlay: false,
-      fullheight: true,
-      mobile: 'reduce',
-    }
-  },
 }
 </script>

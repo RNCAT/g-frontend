@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <p class="card-header-title">จัดการข้อมูลประเภทห้องพัก</p>
+      <p class="card-header-title">เพิ่มข้อมูลประเภทห้องพัก</p>
     </div>
     <div class="card-content">
       <br />
