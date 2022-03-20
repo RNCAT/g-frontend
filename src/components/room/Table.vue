@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <p class="card-header-title">จัดการข้อมูลเจ้าหน้าที่</p>
+      <p class="card-header-title">จัดการข้อมูลห้องพัก</p>
     </div>
     <div class="card-content">
       <b-table :data="data" :columns="columns"></b-table>
@@ -20,21 +20,18 @@ export default {
           prefix: 'Mr.',
           first_name: 'Jesse',
           last_name: 'Simmons',
-          email: 'jesse@gmail.com',
         },
         {
           id: 2,
           prefix: 'Mr.',
           first_name: 'John',
           last_name: 'Jacobs',
-          email: 'john@gmail.com',
         },
         {
           id: 3,
           prefix: 'Mrs.',
           first_name: 'Tina',
           last_name: 'Gilbert',
-          email: 'tima@gmail.com',
         },
       ],
       columns: [
@@ -46,27 +43,22 @@ export default {
         },
         {
           field: 'prefix',
-          label: 'คำนำหน้า',
+          label: 'หมายเลขห้องพัก',
         },
         {
           field: 'first_name',
-          label: 'ชื่อ',
+          label: 'ราคา',
         },
         {
           field: 'last_name',
-          label: 'นามสกุล',
-        },
-        {
-          field: 'email',
-          label: 'อีเมล',
-          centered: true,
+          label: 'ประเภทห้อง',
         },
       ],
     }
   },
 
   methods: {
-    async getAuthorities() {},
+    async getRooms() {},
   },
 
   async mounted() {},

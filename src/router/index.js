@@ -25,8 +25,28 @@ const createRouter = () =>
         component: () => import('@/views/BookingUpload.vue'),
       },
       {
-        path: '/authority',
+        path: '/authorities',
         component: () => import('@/views/Authority.vue'),
+      },
+      {
+        path: '/customers',
+        component: () => import('@/views/Customer.vue'),
+      },
+      {
+        path: '/rooms',
+        component: () => import('@/views/Room.vue'),
+      },
+      {
+        path: '/room-types',
+        component: () => import('@/views/RoomType.vue'),
+      },
+      {
+        path: '/daily-report',
+        component: () => import('@/views/DailyReport.vue'),
+      },
+      {
+        path: '/monthly-report',
+        component: () => import('@/views/MonthlyReport.vue'),
       },
     ],
   })

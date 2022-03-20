@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header">
-      <p class="card-header-title">จัดการข้อมูลเจ้าหน้าที่</p>
+      <p class="card-header-title">จัดการข้อมูลลูกค้า</p>
     </div>
     <div class="card-content">
       <b-table :data="data" :columns="columns"></b-table>
@@ -66,7 +66,7 @@ export default {
   },
 
   methods: {
-    async getAuthorities() {},
+    async getCustomers() {},
   },
 
   async mounted() {},
