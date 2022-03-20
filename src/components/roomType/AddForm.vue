@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'Form',
+  name: 'AddForm',
   data() {
     return {
       roomType: {

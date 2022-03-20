@@ -6,6 +6,7 @@
         <Table
           :roomTypes="roomTypes"
           :isLoaded="isLoading"
+          v-on:update:roomType="toggleUpdateForm"
           v-on:delete:roomType="deleteRoomType"
           v-on:toggle:add="toggleAddForm"
         />
@@ -15,7 +16,10 @@
       <div class="column"></div>
       <div class="column is-four-fifths">
         <div v-if="showAddForm">
-          <Form v-on:add:roomType="addRoomType" />
+          <AddForm v-on:add:roomType="addRoomType" />
+        </div>
+        <div v-if="showUpdateForm">
+          <UpdateForm :updateRoomType="selectedRoomType" v-on:update:roomType="updateRoomType" />
         </div>
       </div>
     </div>
@@ -24,7 +28,8 @@
 
 <script>
 import Table from '@/components/roomType/Table.vue'
-import Form from '@/components/roomType/Form.vue'
+import AddForm from '@/components/roomType/AddForm.vue'
+import UpdateForm from '@/components/roomType/UpdateForm.vue'
 
 import axios from 'axios'
 
@@ -32,19 +37,30 @@ export default {
   name: 'RoomType',
   components: {
     Table,
-    Form,
+    AddForm,
+    UpdateForm,
   },
   data() {
     return {
       roomTypes: [],
       isLoading: true,
       showAddForm: false,
+      showUpdateForm: false,
+      selectedRoomType: null,
     }
   },
 
   methods: {
     toggleAddForm() {
       this.showAddForm = !this.showAddForm
+      this.showUpdateForm = false
+    },
+
+    toggleUpdateForm(roomType) {
+      this.showUpdateForm = true
+      this.showAddForm = false
+
+      this.selectedRoomType = roomType
     },
 
     async getRoomTypes() {
@@ -63,6 +79,22 @@ export default {
       })
 
       this.showAddForm = false
+
+      this.getRoomTypes()
+    },
+
+    async updateRoomType(roomType) {
+      await axios.patch(
+        `${import.meta.env.VITE_API_URL}/room-types/${roomType.room_type_id}`,
+        roomType
+      )
+
+      this.$buefy.notification.open({
+        message: 'แก้ไขข้อมูลประเภทห้องสำเร็จ!',
+        type: 'is-success',
+      })
+
+      this.showUpdateForm = false
 
       this.getRoomTypes()
     },

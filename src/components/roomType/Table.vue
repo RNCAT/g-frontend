@@ -25,7 +25,7 @@
         </b-table-column>
 
         <b-table-column label="actions" width="100" centered v-slot="props">
-          <b-button label="แก้ไข" type="is-warning" /> &nbsp;
+          <b-button @click="updateRoomType(props.row)" label="แก้ไข" type="is-warning" /> &nbsp;
           <b-button @click="confirmDelete(props.row)" label="ลบ" type="is-danger" />
         </b-table-column>
 
@@ -49,6 +49,10 @@ export default {
   methods: {
     toggleAdd() {
       this.$emit('toggle:add')
+    },
+
+    updateRoomType(roomType) {
+      this.$emit('update:roomType', roomType)
     },
 
     confirmDelete(roomType) {

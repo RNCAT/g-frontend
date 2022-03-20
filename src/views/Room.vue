@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Table from '@/components/authority/Table.vue'
+import Table from '@/components/room/Table.vue'
 
 export default {
   name: 'Room',
