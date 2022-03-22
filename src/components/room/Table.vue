@@ -8,15 +8,21 @@
         <b-button @click="toggleAdd" type="is-primary">เพิ่ม</b-button>
       </div>
       <b-table :data="rooms" hoverable paginated :per-page="5" :loading="isLoaded">
-        <b-table-column field="number" label="หมายเลขห้อง" width="20" v-slot="props">
+        <b-table-column field="number" label="หมายเลขห้อง" width="20" searchable v-slot="props">
           {{ props.row.number }}
         </b-table-column>
 
-        <b-table-column field="price" label="ราคา" width="80" v-slot="props">
+        <b-table-column field="price" label="ราคา" width="80" searchable v-slot="props">
           {{ props.row.price }} ฿
         </b-table-column>
 
-        <b-table-column field="RoomType.name" label="ห้องพัก" width="80" v-slot="props">
+        <b-table-column
+          field="RoomType.name"
+          label="ประเภทห้องพัก"
+          width="80"
+          searchable
+          v-slot="props"
+        >
           {{ props.row.RoomType.name }}
         </b-table-column>
 

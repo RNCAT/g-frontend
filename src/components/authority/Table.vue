@@ -8,23 +8,19 @@
         <b-button @click="toggleAdd" type="is-primary">เพิ่ม</b-button>
       </div>
       <b-table :data="authorities" hoverable paginated :per-page="5" :loading="isLoaded">
-        <b-table-column field="authority_id" label="ID" width="10" numeric v-slot="props">
-          {{ props.row.authority_id }}
-        </b-table-column>
-
-        <b-table-column field="prefix" label="คำนำหน้า" width="80" v-slot="props">
+        <b-table-column field="prefix" label="คำนำหน้า" width="80" searchable v-slot="props">
           {{ props.row.prefix }}
         </b-table-column>
 
-        <b-table-column field="name" label="ชื่อ" width="80" v-slot="props">
+        <b-table-column field="name" label="ชื่อ" width="80" searchable v-slot="props">
           {{ props.row.name }}
         </b-table-column>
 
-        <b-table-column field="surname" label="นามสกุล" width="80" v-slot="props">
+        <b-table-column field="surname" label="นามสกุล" width="80" searchable v-slot="props">
           {{ props.row.surname }}
         </b-table-column>
 
-        <b-table-column field="email" label="อีเมล" width="150" v-slot="props">
+        <b-table-column field="email" label="อีเมล" width="150" searchable v-slot="props">
           {{ props.row.email }}
         </b-table-column>
 

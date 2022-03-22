@@ -8,19 +8,15 @@
         <b-button @click="toggleAdd" type="is-primary">เพิ่ม</b-button>
       </div>
       <b-table :data="roomTypes" hoverable paginated :per-page="5" :loading="isLoaded">
-        <b-table-column field="room_type_id" label="ID" width="10" numeric v-slot="props">
-          {{ props.row.room_type_id }}
-        </b-table-column>
-
-        <b-table-column field="name" label="ชื่อประเภท" width="80" v-slot="props">
+        <b-table-column field="name" label="ชื่อประเภท" width="80" searchable v-slot="props">
           {{ props.row.name }}
         </b-table-column>
 
-        <b-table-column field="bed" label="ประเภทเตียง" width="80" v-slot="props">
+        <b-table-column field="bed" label="ประเภทเตียง" width="80" searchable v-slot="props">
           {{ props.row.bed }}
         </b-table-column>
 
-        <b-table-column field="detail" label="detail" width="150" v-slot="props">
+        <b-table-column field="detail" label="detail" width="150" searchable v-slot="props">
           {{ props.row.detail }}
         </b-table-column>
 
