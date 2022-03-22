@@ -48,7 +48,7 @@ export default {
   },
 
   methods: {
-    async addRoomType(roomType) {
+    addRoomType(roomType) {
       this.$emit('add:roomType', roomType)
 
       this.roomType.name = null

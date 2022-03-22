@@ -44,12 +44,8 @@ export default {
   props: ['updateRoomType'],
 
   methods: {
-    async showUpdateForm(roomType) {
+    showUpdateForm(roomType) {
       this.$emit('update:roomType', roomType)
-
-      this.updateRoomType.name = null
-      this.updateRoomType.bed = null
-      this.updateRoomType.detail = null
     },
   },
 }

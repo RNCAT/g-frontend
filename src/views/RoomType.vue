@@ -6,9 +6,9 @@
         <Table
           :roomTypes="roomTypes"
           :isLoaded="isLoading"
+          v-on:toggle:add="toggleAddForm"
           v-on:update:roomType="toggleUpdateForm"
           v-on:delete:roomType="deleteRoomType"
-          v-on:toggle:add="toggleAddForm"
         />
       </div>
     </div>
