@@ -8,33 +8,29 @@
         <div class="columns">
           <div class="column">
             <b-field label="วันที่เช็คอิน">
-              <b-datetimepicker
+              <b-datepicker
                 placeholder="คลิกเพื่อเลือก"
-                :min-datetime="minCheckInDate"
-                :max-datetime="maxCheckInDate"
-                v-model="checkInDate"
+                :min-date="minCheckInDate"
+                :max-date="maxCheckInDate"
+                v-model="date.checkInDate"
               >
-              </b-datetimepicker>
+              </b-datepicker>
             </b-field>
           </div>
           <div class="column">
             <b-field label="วันที่เช็คเอาท์">
-              <b-datetimepicker
+              <b-datepicker
                 placeholder="คลิกเพื่อเลือก"
-                :min-datetime="minCheckOutDate"
-                :max-datetime="maxCheckOutDate"
-                v-model="checkOutDate"
+                :min-date="minCheckOutDate"
+                :max-date="maxCheckOutDate"
+                v-model="date.checkOutDate"
               >
-              </b-datetimepicker>
+              </b-datepicker>
             </b-field>
           </div>
           <div class="column is-one-fifth">
             <b-field label="ค้นหา">
-              <b-button
-                type="is-primary"
-                icon-right="fa-solid fa-magnifying-glass"
-                @click="search()"
-              ></b-button>
+              <b-button type="is-primary" icon-right="fas fa-search" @click="search()"></b-button>
             </b-field>
           </div>
         </div>
@@ -47,28 +43,26 @@
 export default {
   name: 'Form',
   data() {
-    const minCheckInDate = new Date()
-    const maxCheckInDate = new Date()
-    const minCheckOutDate = new Date()
-    const maxCheckOutDate = new Date()
-
-    maxCheckInDate.setDate(minCheckInDate.getDate() + 90)
-    minCheckOutDate.setDate(minCheckInDate.getDate() + 1)
-    maxCheckOutDate.setDate(minCheckOutDate.getDate() + 90)
+    const today = new Date()
 
     return {
-      minCheckInDate,
-      maxCheckInDate,
-      minCheckOutDate,
-      maxCheckOutDate,
-      checkInDate: new Date(),
-      checkOutDate: new Date(),
+      minCheckInDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+      maxCheckInDate: new Date(today.getFullYear(), today.getMonth() + 3, today.getDate()),
+      minCheckOutDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1),
+      maxCheckOutDate: new Date(today.getFullYear(), today.getMonth() + 3, today.getDate() + 1),
+      date: {
+        checkInDate: new Date(),
+        checkOutDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1),
+      },
     }
   },
 
   methods: {
     search() {
-      console.log('ค้นหานะ')
+      this.date.checkInDate.setHours(0, 0, 0, 0)
+      this.date.checkOutDate.setHours(0, 0, 0, 0)
+
+      this.$emit('search:room', this.date)
     },
   },
 }
