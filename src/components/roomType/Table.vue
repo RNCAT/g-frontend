@@ -29,10 +29,6 @@
           <b-button @click="confirmDelete(props.row)" label="ลบ" type="is-danger" />
         </b-table-column>
 
-        <template #top-left>
-          <div class="has-text-centered">No records</div>
-        </template>
-
         <template #empty>
           <div class="has-text-centered">No records</div>
         </template>
@@ -66,5 +62,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

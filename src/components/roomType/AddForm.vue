@@ -6,11 +6,11 @@
     <div class="card-content">
       <br />
       <b-field horizontal label="ชื่อประเภท">
-        <b-input v-model="roomType.name"></b-input>
+        <b-input v-model="roomType.name" required></b-input>
       </b-field>
 
       <b-field horizontal label="ประเภทเตียง">
-        <b-select v-model="roomType.bed" placeholder="ประเภทเตียง">
+        <b-select v-model="roomType.bed" placeholder="ประเภทเตียง" required>
           <option value="เตียงเดี่ยว">เตียงเดี่ยว</option>
           <option value="เตียงคู่">เตียงคู่</option>
         </b-select>

@@ -22,7 +22,7 @@
               to="/"
               exact
             ></b-menu-item>
-            <b-menu-item icon="fa-solid fa-gear" label="จัดการข้อมูล">
+            <b-menu-item icon="fa fa-cog" label="จัดการข้อมูล">
               <b-menu-item
                 icon="fa-solid fa-user-tie"
                 label="เจ้าหน้าที่"
@@ -36,7 +36,7 @@
                 to="/customers"
               ></b-menu-item>
               <b-menu-item
-                icon="fa-solid fa-house"
+                icon="fas fa-bed"
                 label="ห้องพัก"
                 tag="router-link"
                 to="/rooms"
@@ -51,7 +51,7 @@
             </b-menu-item>
             <b-menu-item icon="fa-solid fa-address-book" label="รายงาน">
               <b-menu-item
-                icon="fa-solid fa-sack-dollar"
+                icon="fas fa-wallet"
                 label="รายรับประจำวัน"
                 tag="router-link"
                 to="/daily-report"

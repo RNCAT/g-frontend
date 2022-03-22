@@ -5,7 +5,7 @@ import router from '@/router'
 import 'buefy/dist/buefy.css'
 
 Vue.use(Buefy, {
-  defaultIconPack: 'fa',
+  defaultIconPack: 'fas',
 })
 Vue.config.productionTip = false
 
