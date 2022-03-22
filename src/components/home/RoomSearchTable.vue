@@ -21,8 +21,8 @@
           {{ props.row.price }} ฿
         </b-table-column>
 
-        <b-table-column label="actions" width="100" centered>
-          <b-button label="จอง" type="is-info" /> &nbsp;
+        <b-table-column label="actions" width="100" centered v-slot="props">
+          <b-button @click="selectedRoom(props.row)" label="จอง" type="is-info" /> &nbsp;
         </b-table-column>
 
         <template #empty>
@@ -37,6 +37,12 @@
 export default {
   name: 'RoomSearchTable',
   props: ['availableRooms', 'isLoaded'],
+
+  methods: {
+    selectedRoom(room) {
+      this.$emit('select:room', room)
+    },
+  },
 }
 </script>
 

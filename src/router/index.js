@@ -13,10 +13,13 @@ const createRouter = () =>
         component: () => import('@/views/Home.vue'),
       },
       {
+        name: 'booking',
         path: '/booking',
+        props: true,
         component: () => import('@/views/Booking.vue'),
       },
       {
+        name: 'booking-manage',
         path: '/booking-manage',
         component: () => import('@/views/BookingManage.vue'),
       },

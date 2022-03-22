@@ -10,7 +10,7 @@
       <div class="column"></div>
       <div class="column is-four-fifths">
         <div v-if="isShowSearchRoom">
-          <RoomSearchTable :availableRooms="rooms" />
+          <RoomSearchTable :availableRooms="rooms" @select:room="selectedRoom" />
         </div>
       </div>
     </div>
@@ -32,20 +32,9 @@ export default {
     RoomSearchTable,
   },
   data() {
-    const min = new Date()
-    min.setDate(min.getDate() - 7)
-    min.setHours(9)
-    min.setMinutes(0)
-    min.setSeconds(0)
-    const max = new Date()
-    max.setDate(max.getDate() + 7)
-    max.setHours(18)
-    max.setMinutes(0)
-    max.setSeconds(0)
     return {
-      minDatetime: min,
-      maxDatetime: max,
       isShowSearchRoom: false,
+      selectDate: null,
       rooms: [],
     }
   },
@@ -60,10 +49,19 @@ export default {
     async getSearchRooms(date) {
       const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/rooms/search`, date)
 
+      this.selectDate = date
       this.rooms = data
+    },
+
+    selectedRoom(room) {
+      this.$router.push({
+        name: 'booking',
+        params: {
+          room: room,
+          date: this.selectDate,
+        },
+      })
     },
   },
 }
 </script>
-
-<style></style>

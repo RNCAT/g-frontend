@@ -15,13 +15,14 @@
         />
         <b-menu>
           <b-menu-list label="Menu">
-            <b-menu-item
-              icon="fa-solid fa-calendar"
-              label="การจอง"
-              tag="router-link"
-              to="/"
-              exact
-            ></b-menu-item>
+            <b-menu-item icon="fa-solid fa-calendar" label="การจอง">
+              <b-menu-item
+                icon="fa-solid fa-user-tie"
+                label="จอง"
+                tag="router-link"
+                to="/"
+              ></b-menu-item>
+            </b-menu-item>
             <b-menu-item icon="fa fa-cog" label="จัดการข้อมูล">
               <b-menu-item
                 icon="fa-solid fa-user-tie"
