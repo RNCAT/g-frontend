@@ -47,7 +47,9 @@ export default {
     async getDailyReport() {
       this.selectDate.setHours(0, 0, 0, 0)
 
-      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/reports/${this.selectDate}`)
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/reports/daily`, {
+        date: this.selectDate,
+      })
 
       this.totalPrice = data.totalPrice
     },
