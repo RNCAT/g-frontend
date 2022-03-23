@@ -44,12 +44,8 @@ const createRouter = () =>
         component: () => import('@/views/RoomType.vue'),
       },
       {
-        path: '/daily-report',
-        component: () => import('@/views/DailyReport.vue'),
-      },
-      {
-        path: '/monthly-report',
-        component: () => import('@/views/MonthlyReport.vue'),
+        path: '/report',
+        component: () => import('@/views/Report.vue'),
       },
     ],
   })

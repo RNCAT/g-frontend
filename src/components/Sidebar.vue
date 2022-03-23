@@ -50,19 +50,12 @@
               >
               </b-menu-item>
             </b-menu-item>
-            <b-menu-item icon="fa-solid fa-address-book" label="รายงาน">
-              <b-menu-item
-                icon="fas fa-wallet"
-                label="รายรับประจำวัน"
-                tag="router-link"
-                to="/daily-report"
-              ></b-menu-item>
-              <b-menu-item
-                icon="fa-solid fa-users"
-                label="การเข้าพักประจำเดือน"
-                tag="router-link"
-                to="/monthly-report"
-              ></b-menu-item>
+            <b-menu-item
+              icon="fa-solid fa-address-book"
+              tag="router-link"
+              to="/report"
+              label="รายงาน"
+            >
             </b-menu-item>
           </b-menu-list>
           <b-menu-list label="Actions">
