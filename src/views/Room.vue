@@ -90,7 +90,6 @@ export default {
         message: 'แก้ไขข้อมูลห้องสำเร็จ!',
         type: 'is-success',
       })
-
       this.showUpdateForm = false
 
       this.getRooms()
