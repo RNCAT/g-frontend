@@ -22,16 +22,30 @@
           
         </b-table-column> -->
 
-        <b-table-column field="Customer" label="ลูกค้า" width="200" centered v-slot="props">
+        <b-table-column
+          field="Customer"
+          label="ลูกค้า"
+          width="200"
+          searchable
+          centered
+          v-slot="props"
+        >
           {{ props.row.Customer.prefix }} {{ props.row.Customer.name }}
           {{ props.row.Customer.surname }}
         </b-table-column>
 
-        <b-table-column field="price" label="ราคา" width="40" v-slot="props">
+        <b-table-column field="price" label="ราคา" width="40" searchablev-slot="props">
           {{ props.row.price }} ฿
         </b-table-column>
 
-        <b-table-column field="BookingStatus" label="สถานะ" width="60" centered v-slot="props">
+        <b-table-column
+          field="BookingStatus"
+          label="สถานะ"
+          width="60"
+          searchable
+          centered
+          v-slot="props"
+        >
           <b-tag
             v-if="props.row.BookingStatus.booking_status_id === 1"
             type="is-warning"
