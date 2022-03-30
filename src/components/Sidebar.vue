@@ -17,10 +17,16 @@
           <b-menu-list label="Menu">
             <b-menu-item icon="fa-solid fa-calendar" label="การจอง">
               <b-menu-item
-                icon="fa-solid fa-user-tie"
+                icon="fas fa-calendar-check"
                 label="จอง"
                 tag="router-link"
                 to="/"
+              ></b-menu-item>
+              <b-menu-item
+                icon="fas fa-list"
+                label="รายการจอง"
+                tag="router-link"
+                to="/booking-manage"
               ></b-menu-item>
             </b-menu-item>
             <b-menu-item icon="fa fa-cog" label="จัดการข้อมูล">
@@ -59,7 +65,7 @@
             </b-menu-item>
           </b-menu-list>
           <b-menu-list label="Actions">
-            <b-menu-item icon="fa-solid fa-right-from-bracket" label="Logout"></b-menu-item>
+            <b-menu-item icon="fas fa-door-closed" label="Logout" @click="logout"></b-menu-item>
           </b-menu-list>
         </b-menu>
       </div>
@@ -69,7 +75,20 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Sidebar',
+  methods: {
+    async logout() {
+      await axios.post(`${import.meta.env.VITE_API_URL}/authorities/logout`, null, {
+        withCredentials: true,
+      })
+
+      await this.$store.dispatch('authority', null)
+
+      this.$router.push('/login')
+    },
+  },
 }
 </script>

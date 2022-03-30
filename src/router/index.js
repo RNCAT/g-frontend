@@ -47,6 +47,10 @@ const createRouter = () =>
         path: '/report',
         component: () => import('@/views/Report.vue'),
       },
+      {
+        path: '/login',
+        component: () => import('@/views/Login.vue'),
+      },
     ],
   })
 

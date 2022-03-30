@@ -33,7 +33,6 @@ export default {
   methods: {
     async getBookingList() {
       const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/booking`)
-
       this.bookingList = data
     },
 

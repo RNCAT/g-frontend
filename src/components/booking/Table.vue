@@ -5,17 +5,22 @@
     </div>
     <div class="card-content">
       <b-table :data="bookingList" hoverable>
-        <b-table-column field="booking_id" label="ID" width="20" searchable v-slot="props">
+        <!-- <b-table-column field="booking_id" label="ID" width="20" searchable v-slot="props">
           {{ props.row.booking_id }}
+        </b-table-column> -->
+
+        <b-table-column field="Room.number" label="เลขห้อง" width="80" searchable v-slot="props">
+          {{ props.row.Room.number }}
         </b-table-column>
 
-        <b-table-column field="start" label="วันที่เช็คอิน" width="30" centered v-slot="props">
-          {{ new Date(props.row.start).toLocaleDateString() }}
-        </b-table-column>
-
-        <b-table-column field="end" label="วันที่เช็คเอาท์" width="100" centered v-slot="props">
+        <b-table-column field="start" label="วันที่จอง" width="150" centered v-slot="props">
+          {{ new Date(props.row.start).toLocaleDateString() }} -
           {{ new Date(props.row.end).toLocaleDateString() }}
         </b-table-column>
+
+        <!-- <b-table-column field="end" label="วันที่เช็คเอาท์" width="100" centered v-slot="props">
+          
+        </b-table-column> -->
 
         <b-table-column field="Customer" label="ลูกค้า" width="200" centered v-slot="props">
           {{ props.row.Customer.prefix }} {{ props.row.Customer.name }}
