@@ -10,11 +10,11 @@
           </div>
           <div class="card-content">
             <b-field label="อีเมล">
-              <b-input v-model="email" maxlength="30"></b-input>
+              <b-input v-model="email" maxlength="30" required></b-input>
             </b-field>
 
             <b-field label="รหัสผ่าน">
-              <b-input v-model="password" type="password"></b-input>
+              <b-input v-model="password" type="password" required></b-input>
             </b-field>
 
             <br />
