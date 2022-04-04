@@ -100,14 +100,21 @@ export default {
     },
 
     async deleteRoomType(roomType) {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/room-types/${roomType.room_type_id}`)
+      try {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/room-types/${roomType.room_type_id}`)
 
-      this.$buefy.notification.open({
-        message: 'ลบข้อมูลประเภทห้องสำเร็จ!',
-        type: 'is-success',
-      })
+        this.$buefy.notification.open({
+          message: 'ลบข้อมูลประเภทห้องสำเร็จ!',
+          type: 'is-success',
+        })
 
-      await this.getRoomTypes()
+        await this.getRoomTypes()
+      } catch (error) {
+        this.$buefy.notification.open({
+          message: 'ไม่สามารถลบประเภทห้องที่เคยที่มีห้องได้!',
+          type: 'is-danger',
+        })
+      }
     },
   },
 

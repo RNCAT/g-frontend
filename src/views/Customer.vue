@@ -101,14 +101,21 @@ export default {
     },
 
     async deleteCustomer(customer) {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/customers/${customer.customer_id}`)
+      try {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/customers/${customer.customer_id}`)
 
-      this.$buefy.notification.open({
-        message: 'ลบข้อมูลลูกค้าสำเร็จ!',
-        type: 'is-success',
-      })
+        this.$buefy.notification.open({
+          message: 'ลบข้อมูลลูกค้าสำเร็จ!',
+          type: 'is-success',
+        })
 
-      this.getCustomers()
+        this.getCustomers()
+      } catch (error) {
+        this.$buefy.notification.open({
+          message: 'ไม่สามารถลบข้อมูลลูกค้าที่เคยจองได้!',
+          type: 'is-danger',
+        })
+      }
     },
   },
 

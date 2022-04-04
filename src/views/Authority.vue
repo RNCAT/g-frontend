@@ -104,14 +104,21 @@ export default {
     },
 
     async deleteAuthority(authority) {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/authorities/${authority.authority_id}`)
+      try {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/authorities/${authority.authority_id}`)
 
-      this.$buefy.notification.open({
-        message: 'ลบข้อมูลเจ้าหน้าที่สำเร็จ!',
-        type: 'is-success',
-      })
+        this.$buefy.notification.open({
+          message: 'ลบข้อมูลเจ้าหน้าที่สำเร็จ!',
+          type: 'is-success',
+        })
 
-      await this.getAuthorities()
+        await this.getAuthorities()
+      } catch (error) {
+        this.$buefy.notification.open({
+          message: 'ไม่สามารถลบข้อมูลเจ้าหน้าที่ที่เคยจองได้!',
+          type: 'is-danger',
+        })
+      }
     },
   },
 

@@ -96,14 +96,21 @@ export default {
     },
 
     async deleteRoom(room) {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/rooms/${room.room_id}`)
+      try {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/rooms/${room.room_id}`)
 
-      this.$buefy.notification.open({
-        message: 'ลบข้อมูลห้องสำเร็จ!',
-        type: 'is-success',
-      })
+        this.$buefy.notification.open({
+          message: 'ลบข้อมูลห้องสำเร็จ!',
+          type: 'is-success',
+        })
 
-      this.getRooms()
+        this.getRooms()
+      } catch (error) {
+        this.$buefy.notification.open({
+          message: 'ไม่สามารถลบห้องที่เคยจองได้!',
+          type: 'is-danger',
+        })
+      }
     },
   },
 
