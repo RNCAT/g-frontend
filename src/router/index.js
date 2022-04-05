@@ -24,10 +24,6 @@ const createRouter = () =>
         component: () => import('@/views/BookingManage.vue'),
       },
       {
-        path: '/booking-upload',
-        component: () => import('@/views/BookingUpload.vue'),
-      },
-      {
         path: '/authorities',
         component: () => import('@/views/Authority.vue'),
       },
