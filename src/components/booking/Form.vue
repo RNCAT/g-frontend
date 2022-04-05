@@ -22,13 +22,12 @@
         </b-field>
 
         <b-field horizontal label="ลูกค้า">
-          <b-select
-            v-for="customer in customers"
-            :key="customer.customer_id"
-            v-model="bookingData.customerId"
-            required
-          >
-            <option :value="customer.customer_id">
+          <b-select v-model="bookingData.customerId" required>
+            <option
+              v-for="customer in customers"
+              :key="customer.customer_id"
+              :value="customer.customer_id"
+            >
               {{ customer.name }} {{ customer.surname }}
             </option>
           </b-select>

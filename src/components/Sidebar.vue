@@ -10,8 +10,7 @@
     >
       <div class="p-1">
         <img
-          src="http://placekitten.com/250/150"
-          alt="Lightweight UI components for Vue.js based on Bulma"
+          src="https://cdn.discordapp.com/attachments/766583646433050624/958938382115962911/received_1085786261946231.jpeg"
         />
         <b-menu>
           <b-menu-list label="Menu">
