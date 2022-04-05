@@ -60,10 +60,6 @@ export default {
         month: this.selectMonth,
       })
 
-      // console.log(this.selectMonth)
-      // console.log(new Date(data.plusMonth))
-      // console.log(data)
-
       this.bookingCount = data.bookingCount
       this.totalPrice = data.totalPrice
       this.cancelCount = data.cancelCount
