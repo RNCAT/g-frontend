@@ -9,24 +9,31 @@
           @checkin:booking="checkInBooking"
           @checkout:booking="checkOutBooking"
           @cancel:booking="cancelBooking"
+          @print:booking="printBooking"
         />
       </div>
     </div>
+    <Receipt v-if="booking" :booking="booking" @afterprint:booking="booking = null" />
   </div>
 </template>
 
 <script>
 import Table from '@/components/booking/Table.vue'
+import Receipt from '@/components/booking/Receipt.vue'
 import axios from 'axios'
+import VueHtml2pdf from 'vue-html2pdf'
 
 export default {
   name: 'BookingManage',
   components: {
     Table,
+    Receipt,
+    VueHtml2pdf,
   },
   data() {
     return {
       bookingList: [],
+      booking: null,
     }
   },
 
@@ -59,11 +66,15 @@ export default {
 
       await this.getBookingList()
     },
+
+    printBooking(booking) {
+      this.booking = booking
+    },
   },
 
   async mounted() {
     await this.getBookingList()
-    console.log(this.bookingList)
+    // console.log(this.bookingList)
   },
 }
 </script>
